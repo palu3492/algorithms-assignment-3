@@ -66,7 +66,7 @@
     \[
     S(i) =  \mbox{max sum subarray ending at index } i \\
     \]
-    Using Kadane's algorithm, the subarray ending at index i is either the max sum subarray ending at i-1 extended to i or it is the new max sum subarray starting and ending at index i.
+    The subarray ending at index i is either the max sum subarray ending at i-1 extended to i or it is the new max sum subarray starting and ending at index i.
   \end{solution}
   \part[2]State the recurrence for the entries of your table (NOT for the running time), and explain in
     words why it's true.  For
@@ -79,27 +79,27 @@
       A[i] & i = 0 \\
       max( S(i-1) + A[i], A[i] ) & i > 0
    \end{cases}
-   \]
+    \]
+    Justification for correctness.
   \end{solution}
   \part[1] Give pseudocode for filling in the table AND returning the solution.  Do NOT use memoization.
     \begin{solution}
-        \begin{algorithmic}
-        \State \underline{Input}: array $A = [a1, . . . , an]$
-        \State \underline{Output}: The sum of the maximum sum subarray. \\
-        \Function{MaxSubArray}{$A$}
-            \State $maxSum = A[0]$ \Comment{The max sum starts as the first value in input array}
-            \State $table[0] = A[0]$ \Comment{Initialize table with first value of input array}
-            \For{$(i = 1; i < n; i++)$}
-                \State $table[i] = max(A[i], A[i] + table[i - 1]$ \Comment{}
-                \State $maxSum = max(maxSum, table[i])$
-            \EndFor
-            \State \Return $maxSum$
-        \EndFunction
-        \end{algorithmic}
+    \\
+    Input: array $A = [a1, . . . , an]$ \\
+    Output: The value of the maximum subarray. \\
+    $
+    function MaxSubArray(A) \\
+        maxSum = A[0] \\
+        table[0] = A[0] \\
+        for(i=1; i<n; i++) do \\
+            table[i] = max(A[i], A[i] + table[i - 1] \\
+            maxSum = max(maxSum, table[i]) \\
+        return maxSum
+    $
   \end{solution}
   \part[1] Analyze the running time (give a $\Theta$-bound AND justification). 
     \begin{solution}
-    The $\Theta$-bound on the algorithm's running time is $\Theta(n)$. The loop iterates over each item in the input array once, doing $\Theta(n)$ work.
+    The algorithm does $\Theta(n)$ work. Justification.
   \end{solution} 
 	\part[1]{\bf(EXTRA CREDIT)} Implement your pseudo-code from part (c). Add code to the \texttt{maxSumSubarray} method in the \texttt{MaxSum.java} file provided with the assignment.  Note that you will receive NO credit if your code does not implement your pseudo-code and you must use dynamic programming (there must be a table!). 
 \end{parts}   

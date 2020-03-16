@@ -11,8 +11,8 @@
  *  You should include more test cases to ensure that your implemenetation works correctly.
  *  You do NOT need to submit this file.
  * 
- * @author YOUR NAME HERE
- * Due Date: xx/xx/xx
+ * @author Alex Palumbo and Emma Sinn
+ * Due Date: 03/16/20
  */
 
 
@@ -25,7 +25,13 @@ public class MaxSumDriver{
 
 
             int[] array = {10,-5,40,10};
-                                                      
+            // tests
+            /*
+            int[] array = {-10,-5,-20,-1};
+            int[] array = {10};
+            int[] array = {}; // causes error
+            */
+
             System.out.println( MaxSum.maxSumSubarray(array) );
         
 

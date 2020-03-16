@@ -5,9 +5,9 @@
  * 
  * 
  * Implements an iterative dynamic programming solution to find the subarray of maximum sum, of a given array of numbers.
- * 
- * @author YOUR NAME HERE
- * Due Date: xx/xx/xx
+ *
+ * @author Alex Palumbo and Emma Sinn
+ * Due Date: 03/16/20
  * 
  */
 
@@ -24,7 +24,14 @@ public class MaxSum{
     public static int maxSumSubarray(int[] a){
 		
         //YOUR CODE HERE
-        return 0;
+        int maxSum = a[0];
+        int[] table = new int[a.length];
+        table[0] = a[0];
+        for(int i = 1; i<a.length; i++){
+            table[i] = Math.max(a[i], a[i] + table[i-1]);
+            maxSum = Math.max(maxSum, table[i]);
+        }
+        return maxSum;
 
     }//maxSubArray
 
